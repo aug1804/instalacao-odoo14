@@ -1,6 +1,6 @@
-# instalacao_odoo14
+# Instalação Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13
 
-[Como instalar Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13]::
+Como instalar Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13
 
 Instalar o Odoo pode não ser uma tarefa fácil para quem está começando mas com esse guia pretendo facilitar a vida de todos que estão em busca de instalar o Odoo e usufruir de todos as suas ferramentas disponíveis - e são muitas...
 
