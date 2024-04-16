@@ -40,7 +40,7 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
 
 3. Atualizar dependências
 
-3.1. Crie o arquivo `dependencias.txt` com uma lista de todas as dependências do Odoo:
+   - Crie o arquivo `dependencias.txt` com uma lista de todas as dependências do Odoo:
      - conteúdo do arquivo dependencias.txt:
        - build-essential 
        - fontconfig 
@@ -79,42 +79,54 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
        - xz-utils 
        - zlib1g-dev 
 
-3.2. Depois de criar o arquivo, execute:
+   - Depois de criar o arquivo, execute:
      ```
      sudo apt install -y -q < dependencias.txt
      ```
 4. Instale o 'wkhtmltopdf'
-   Vá para o terminal e execute:
+   - Vá para o terminal e execute:
      ```
      sudo su
      apt install wkhtmltopdf
-   Caso haja algum problema:
-     Execute o comando abaixo para baixar o pacote wkhtmltopdf do Github:
+   - Caso haja algum problema:
+     - Execute o comando abaixo para baixar o pacote wkhtmltopdf do Github:
+       ```
        wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
-     Após fazer o download do arquivo, instale-o usando os seguintes comandos:
+     - Após fazer o download do arquivo, instale-o usando os seguintes comandos:
+       ```
        chmod +x wkhtmltox_0.12.6-1.focal_amd64.deb
        sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
        ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
-   Verifique se a instalação foi bem-sucedida conferindo a versão:
+   - Verifique se a instalação foi bem-sucedida conferindo a versão:
+       ```
        wkhtmltopdf --version
-   Pode ser necessário fazer essas cópias:
+       ```
+> [!NOTE]
+> Pode ser necessário fazer essas cópias:
+
+```
      sudo cp /usr/local/bin/wkhtmltopdf   /usr/bin/wkhtmltopdf
      sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
-     e / ou
+```
+> [!NOTE]
+> e / ou
+
+```
      sudo cp /usr/bin/wkhtmltopdf   /usr/local/bin/wkhtmltopdf
      sudo cp /usr/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage
-
-6. Instalação do Odoo 14 de acordo com o site oficial Odoo
+```
+5. Instalação do Odoo 14 de acordo com o site oficial Odoo
+   ```
    cd /home/aug
    sudo su
    wget -q -O - https://nightly.odoo.com/odoo.key | sudo gpg --dearmor -o /usr/share/keyrings/odoo-archive-keyring.gpg
    echo 'deb [signed-by=/usr/share/keyrings/odoo-archive-keyring.gpg] https://nightly.odoo.com/14.0/nightly/deb/ ./' | sudo tee /etc/apt/sources.list.d/odoo.list
    sudo apt-get update && apt-get upgrade && sudo apt-get install odoo
 
-
-7. `Nesse ponto, já pode ir para o seu navegador e executar o Odoo`
-   No seu navegador, execute: 'localhost:8069'
-     Da 1a vez, o Odoo vai pedir para você criar seu banco de dados:
+6. ### Nesse ponto, já pode ir para o seu navegador e executar o Odoo
+   - No seu navegador, execute: 'localhost:8069'
+     - Da 1a vez, o Odoo vai pedir para você criar seu banco de dados:
+       ```
        Create Database
          Master Password: admin
          Database Name  : Odoo
@@ -125,9 +137,10 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
          Country        : Brazil
          Demo data      : MARCAR ESSA OPÇÃO!!!
 
-8. `git clone` módulos OCA
-   Nesse ponto, vamos clonar os principais módulos da OCA e outros.
-   Vamos criar um diretório /github e debaixo deles clonaremos os módulos.
+7. `git clone` módulos OCA
+   - Nesse ponto, vamos clonar os principais módulos da OCA e outros.
+   - Vamos criar um diretório /github e debaixo deles clonaremos os módulos.
+     ```
      sudo su
      cd /
      mkdir github && cd github
@@ -136,17 +149,19 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
      git clone ... (vá clonando os módulos de acordo com sua necessidade)
      mkdir engenere && cd engenere
      git clone https://github.com/Engenere/engenere-addons
+     ```
      e assim por diante...
 
-9. Editar o arquivo /etc/odoo/odoo.conf
-   → várias configurações, inclusive as PASTAS ONDE FICAM OS 'ADDONS' / OS MÓDULOS OCA E OUTROS
-   Parâmetros que precisam ser alterados já:
+8. Editar o arquivo /etc/odoo/odoo.conf
+   - várias configurações, inclusive as PASTAS ONDE FICAM OS 'ADDONS' / OS MÓDULOS OCA E OUTROS
+   - Parâmetros que precisam ser alterados já:
+     ```
      addons_path = /usr/lib/python3/dist-packages/odoo/addons, → módulos Odoo
                    /github/oca/l10n-brazil,                    → módulo da OCA
                    /github/engenere/engenere-addons            → módulo da Engenere (ATENÇÃO: A ÚLTIMA LINHA NÃO TEM VÍRGULA)
      admin_passwd = admin
 
-10. Execute o Odoo, vá em Aplicativos e:
+9. Execute o Odoo, vá em Aplicativos e:
      - clique em 'Atualizar Lista de Aplicativos'
      - instale primeiro todos os módulos Odoo
      - depois instale os módulos OCA, começando pelo l10n_br_base
@@ -154,8 +169,12 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
      - depois o l10n_br_coa_generic e ou l10_br_coa_simple
      - depois l10n_br_account
      - só depois os demais módulos, de acordo com suas necessidades
+   
    Talvez agora você tenha que derrubar o Odoo e levantar novamente:
-     sudo systemctl restart odoo
+      ```
+      sudo systemctl restart odoo
+      ```
+
    E dar um F5 no seu navegador.
 
-E seja bem-vindo ao mundo Odoo!!!
+### E seja bem-vindo(a) ao mundo Odoo!!!
