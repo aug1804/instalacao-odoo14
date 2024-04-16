@@ -94,7 +94,7 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
      sudo cp /usr/bin/wkhtmltopdf   /usr/local/bin/wkhtmltopdf
      sudo cp /usr/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage
 
-5. Instalação do Odoo 14 de acordo com o site oficial
+5. Instalação do Odoo 14 de acordo com o site oficial Odoo
    cd /home/aug
    sudo su
    wget -q -O - https://nightly.odoo.com/odoo.key | sudo gpg --dearmor -o /usr/share/keyrings/odoo-archive-keyring.gpg
