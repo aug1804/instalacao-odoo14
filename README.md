@@ -1,6 +1,6 @@
 # Instalação Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13
 
-### Como instalar Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13
+## Como instalar Odoo CE versão 14.0 no Ubuntu 20.04 com Python 3.8 e PostgreSQL 13
 
 Instalar o Odoo pode não ser uma tarefa fácil para quem está começando mas com esse guia pretendo facilitar a vida de todos que estão em busca de instalar o Odoo e usufruir de todos as suas ferramentas disponíveis - e são muitas...
 
@@ -83,7 +83,7 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
      ```
      sudo apt install -y -q < dependencias.txt
      ```
-4. Instale o 'wkhtmltopdf'
+4. Instale o `wkhtmltopdf`
    - Vá para o terminal e execute:
      ```
      sudo su
@@ -103,14 +103,12 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
        ```
 > [!NOTE]
 > Pode ser necessário fazer essas cópias:
-
 ```
      sudo cp /usr/local/bin/wkhtmltopdf   /usr/bin/wkhtmltopdf
      sudo cp /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
 ```
 > [!NOTE]
 > e / ou
-
 ```
      sudo cp /usr/bin/wkhtmltopdf   /usr/local/bin/wkhtmltopdf
      sudo cp /usr/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage
@@ -122,9 +120,8 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
    wget -q -O - https://nightly.odoo.com/odoo.key | sudo gpg --dearmor -o /usr/share/keyrings/odoo-archive-keyring.gpg
    echo 'deb [signed-by=/usr/share/keyrings/odoo-archive-keyring.gpg] https://nightly.odoo.com/14.0/nightly/deb/ ./' | sudo tee /etc/apt/sources.list.d/odoo.list
    sudo apt-get update && apt-get upgrade && sudo apt-get install odoo
-
-6. ### Nesse ponto, já pode ir para o seu navegador e executar o Odoo
-   - No seu navegador, execute: 'localhost:8069'
+6. ## Nesse ponto, já pode ir para o seu navegador e executar o Odoo
+   - No seu navegador, execute: `localhost:8069`
      - Da 1a vez, o Odoo vai pedir para você criar seu banco de dados:
        ```
        Create Database
@@ -152,7 +149,7 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
      ```
      e assim por diante...
 
-8. Editar o arquivo /etc/odoo/odoo.conf
+8. Editar o arquivo `/etc/odoo/odoo.conf`
    - várias configurações, inclusive as PASTAS ONDE FICAM OS 'ADDONS' / OS MÓDULOS OCA E OUTROS
    - Parâmetros que precisam ser alterados já:
      ```
@@ -177,4 +174,6 @@ Ah, antes gostaria de pedir para colocar nos comentários todo e qualquer proble
 
    E dar um F5 no seu navegador.
 
-### E seja bem-vindo(a) ao mundo Odoo!!!
+
+#                  E seja bem-vindo(a) ao mundo Odoo!!!
+
